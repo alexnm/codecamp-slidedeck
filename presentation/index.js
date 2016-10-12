@@ -4,9 +4,14 @@ import React from "react";
 // Import Spectacle Core tags
 import {
   Appear,
+  BlockQuote,
+  Cite,
   Deck,
   Heading,
   Image,
+  List,
+  ListItem,
+  Quote,
   Slide,
   Spectacle,
   Text,
@@ -18,6 +23,8 @@ import preloader from "spectacle/lib/utils/preloader";
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
 
+import { logos, images } from "./images";
+
 // Import custom component
 // import Interactive from "../assets/interactive";
 
@@ -25,18 +32,8 @@ import createTheme from "spectacle/lib/themes/default";
 require( "normalize.css" );
 require( "spectacle/lib/themes/default/index.css" );
 
-const images = {
-    city: require( "../assets/city.jpg" ),
-    angular: require( "../assets/angular.png" ),
-    aurelia: require( "../assets/aurelia.png" ),
-    backbone: require( "../assets/backbone.png" ),
-    ember: require( "../assets/ember.png" ),
-    jquery: require( "../assets/jquery.gif" ),
-    handlebars: require( "../assets/handlebars.png" ),
-    react: require( "../assets/react.svg" ),
-};
-
 preloader( images );
+preloader( logos );
 
 const theme = createTheme( {
     primary: "#343F3E",
@@ -46,12 +43,12 @@ const theme = createTheme( {
 
 export default ( ) => (
     <Spectacle theme={ theme }>
-        <Deck transition={ [ "zoom", "slide" ] } transitionDuration={ 500 }>
-            <Slide transition={ [ "zoom" ] } bgColor="primary">
-                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#3498db">
+        <Deck transition={ [ "slide" ] } transitionDuration={ 500 }>
+            <Slide bgImage={ images.map } bgDarken={ 0.75 }>
+                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f1c40f">
                     Start writing
                 </Heading>
-                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#3498db">
+                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f1c40f">
                     modern JavaScript
                 </Heading>
                 <Text textSize="1.5em" margin="100px 0px 0px 0px" textAlign="left" bold textColor="#DCEDFF">
@@ -64,21 +61,67 @@ export default ( ) => (
                     @alexnmoldovan
                 </Text>
             </Slide>
-            <Slide transition={ [ "slide" ] } bgImage={ images.city.replace( "/", "" ) } bgDarken={ 0.75 }>
-                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f39c12">
+            <Slide transition={ [ "slide" ] } bgColor="#f1c40f" >
+                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#34495e">
                     State of JavaScript in 2016
                 </Heading>
             </Slide>
             <Slide transition={ [ "zoom" ] } bgColor="#16a085">
                 <Appear>
-                    <Image src={ images.angular.replace( "/", "" ) } margin="0px auto" height="50px" />
+                    <Image src={ logos.angular } margin="0px auto" height="50px" />
                 </Appear>
                 <Appear>
-                    <Image src={ images.ember.replace( "/", "" ) } margin="0px auto" height="50px" />
+                    <Image src={ logos.ember } margin="0px auto" height="50px" />
                 </Appear>
                 <Appear>
-                    <Image src={ images.aurelia.replace( "/", "" ) } margin="0px auto" height="50px" />
+                    <Image src={ logos.aurelia } margin="0px auto" height="50px" />
                 </Appear>
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                ES 2016?
+            </Slide>
+            <Slide transition={ [ "spin" ] } bgColor="#2c3e50">
+                <Heading>TC39 process</Heading>
+                <List>
+                    <Appear><ListItem textColor="#e74c3c">Stage 0 - Strawman</ListItem></Appear>
+                    <Appear>
+                        <ListItem textColor="#e67e22">
+                            Stage 1 - Proposal
+                            <img src={ images.lichKing } alt="lich-king" style={ { position: "absolute", height: 280, right: 200, top: 190 } } />
+                        </ListItem>
+                    </Appear>
+                    <Appear><ListItem textColor="#2ecc71">State 2 - Draft</ListItem></Appear>
+                    <Appear><ListItem textColor="#3498db">Stage 3 - Candidate</ListItem></Appear>
+                    <Appear><ListItem textColor="#8e44ad">Stage 4 - Finished</ListItem></Appear>
+                    <Appear><ListItem textColor="#DCEDFF">https://github.com/tc39/ecma262</ListItem></Appear>
+                </List>
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                New Features in depth
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                Can I use it?
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                Babel
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                What about node?
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#f1c40f">
+                <BlockQuote>
+                    <Quote>Any application that can be written in JavaScript, will eventually be written in JavaScript.</Quote>
+                    <Cite>Atwood's Law</Cite>
+                </BlockQuote>
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                <Appear><Heading size={ 1 } fit caps lineHeight={ 1 }>This slide deck</Heading></Appear>
+                <Appear><Heading size={ 1 } fit caps lineHeight={ 1 }>is written</Heading></Appear>
+                <Appear><Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f1c40f">in JavaScript!</Heading></Appear>
+            </Slide>
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                Thank you!
+                Questions?
             </Slide>
         </Deck>
     </Spectacle>
