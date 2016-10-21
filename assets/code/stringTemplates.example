@@ -1,0 +1,11 @@
+var greeting = function( name, sex ) {
+    var title = sex === "male" ? "Mr." : "Mrs.";
+    return "Greetings " + title + " " + name + "!"
+}
+
+/* ES 2015 */
+
+const greeting = ( name, sex ) => {
+    const title = sex === "male" ? "Mr." : "Mrs.";
+    return `Greetings ${ title } ${ name }!`;
+}

@@ -1,0 +1,29 @@
+var name = "Alex";
+var age = 28;
+
+var person = {
+    name: name,
+    age: age,
+    sex: "male",
+    greet: function( ) {
+        return "Hello " + this.name;
+    },
+}
+
+/* ES 2015 */
+
+const name = "Alex";
+const age = 28;
+
+const person = {
+    name,
+    age,
+    sex: "male",
+    greet( ) {
+        return "Hello " + this.name;
+    },
+}
+
+
+
+

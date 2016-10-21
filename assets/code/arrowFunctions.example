@@ -1,0 +1,31 @@
+var sum = function( a, b ) {
+    return a + b;
+}
+
+/* ES 2015 */
+
+const sum = ( a, b ) => a + b;
+
+const increment = a => a + 1;
+
+const functionWithBlock = ( a, b ) => {
+    if ( a > 0 ) {
+        return b;
+    }
+
+    return 0;
+}
+
+
+
+const numbers = [ 0, 1, 2, 3, 4, 5 ];
+
+const numbersPlusOne = numbers.map( n => n + 1 );
+
+
+
+this.name = "Alex";
+
+element.onclick = ( event ) => {
+    this.name; // "Alex"
+}

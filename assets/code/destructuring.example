@@ -1,0 +1,30 @@
+var person = {
+    name: "Alex",
+    age: 28,
+    sex: "male"
+};
+
+var name = person.name;
+var age = person.age;
+
+/* ES 2015 */
+
+const { name, age } = person;
+
+const { name : firstname, age } = person;
+
+const greet = ( { name, sex } ) => {
+    const title = sex === "male" ? "Mr." : "Mrs.";
+    return `Greetings ${ title } ${ name }!`;
+}
+
+greet( person );
+
+
+
+const [ a, b ] = [ 1, 2 ]; // a = 1, b = 2
+
+const [ a, , b ] = [ 1, 2, 3 ]; // a = 1, b = 3
+
+let a = 1, b = 2;
+[ a, b ] = [ b, a ];
