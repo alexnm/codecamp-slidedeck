@@ -1,0 +1,55 @@
+function Person( name, age, sex ) {
+    this.name = name;
+    this.age = age;
+    this.sex = sex;
+}
+
+Person.prototype.greet = function( ) {
+    return "Hello " + this.name;
+};
+
+var me = new Person( "Alex", 28, "male" );
+me.greet( ); // "Hello Alex"
+
+/* ES 2015 */
+
+class Person {
+    constructor( name, age, sex ) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    greet( ) {
+        return "Hello " + this.name;
+    }
+}
+
+const me = new Person( "Alex", 28, "male" );
+me.greet( ); // "Hello Alex"
+
+
+class Developer extends Person {
+    constructor( name, age, sex, skill ) {
+        super( name, age, sex );
+        this.skill = skill;
+    }
+
+    learnJavaScript( ) {
+        this.skill = "ninja";
+    }
+
+    greet( ) {
+        return "Greetings " + this.name;
+    }
+}
+
+const me = new Developer( 
+    "Alex", 28, "male", "noob" 
+);
+me.name; // "Alex"
+me.learnJavaScript( );
+me.skill; // "ninja"
+me.greet( ); // "Greetings Alex"
+
+

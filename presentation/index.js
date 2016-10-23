@@ -7,6 +7,7 @@ import {
   BlockQuote,
   Cite,
   Deck,
+  Fit,
   Heading,
   Image,
   List,
@@ -42,9 +43,26 @@ const theme = createTheme( {
     default: "8F91A2",
 } );
 
+const spanStyle = {
+    fontSize: "1.5em",
+    fontWeight: "bold",
+    color: "#2c3e50",
+    margin: "0px 20px",
+};
+
 const Logo = ( { name, height = 50 } ) => (
     <Appear>
         <Image src={ logos[ name ] } height={ `${ height }px` } margin="10px 20px" />
+    </Appear>
+);
+
+const Feature = ( { name } ) => (
+    <Appear>
+        <span>
+            <span style={ spanStyle }>
+                { name }
+            </span>
+        </span>
     </Appear>
 );
 
@@ -230,27 +248,137 @@ export default ( ) => (
                     { loc: [ 28, 30 ] },
                 ] }
             />
-            <Slide transition={ [ "fade" ] } bgColor="#f1c40f">
-                Rest & Spread Operators
-            </Slide>
-            <Slide transition={ [ "fade" ] } bgColor="#d35400">
-                Classes(ish)
-            </Slide>
-            <Slide transition={ [ "fade" ] } bgColor="#2ecc71">
-                Generators
-            </Slide>
-            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
-                <Heading textColor="#f1c40f" fit>ES 2016</Heading>
+            <CodeSlide
+                transition={ [ "slide" ] }
+                lang="js"
+                code={ require( "raw!../assets/code/restAndSpread.example" ) }
+                ranges={ [
+                    { loc: [ 0, 0 ], title: "Rest and Spread Operators" },
+                    { loc: [ 0, 5 ] },
+                    { loc: [ 6, 11 ] },
+                    { loc: [ 12, 20 ] },
+                    { loc: [ 19, 20 ], note: "pass in as many arguments as you want" },
+                    { loc: [ 12, 14 ], note: "ugly hack to get all arguments" },
+                    { loc: [ 14, 17 ], note: "reduce the array to get the sum" },
+                    { loc: [ 23, 27 ], note: "rest operator to the rescue!" },
+                    { loc: [ 29, 32 ], note: "spread operator to the rescue!" },
+                    { loc: [ 34, 38 ], note: "right variadic function" },
+                    { loc: [ 40, 43 ], note: "combine destructuring with rest" },
+                    { loc: [ 45, 56 ], note: "future object spread operator" },
+                ] }
+            />
+            <CodeSlide
+                transition={ [ "slide" ] }
+                lang="js"
+                code={ require( "raw!../assets/code/classes.example" ) }
+                ranges={ [
+                    { loc: [ 0, 0 ], title: "Classes(ish)" },
+                    { loc: [ 0, 12 ] },
+                    { loc: [ 15, 29 ] },
+                    { loc: [ 31, 45 ] },
+                    { loc: [ 46, 53 ] },
+                    { loc: [ 50, 51 ] },
+                    { loc: [ 37, 40 ], node: "skill is an instance variable" },
+                    { loc: [ 52, 53 ] },
+                    { loc: [ 41, 44 ], note: "name is inherited from Person" },
+                ] }
+            />
+            <CodeSlide
+                transition={ [ "slide" ] }
+                lang="js"
+                code={ require( "raw!../assets/code/generators.example" ) }
+                ranges={ [
+                    { loc: [ 0, 0 ], title: "Generators" },
+                    { loc: [ 0, 5 ] },
+                    { loc: [ 2, 3 ], note: "yield will 'stop' the execution" },
+                    { loc: [ 6, 7 ], note: "initialize an iterator over the generated values" },
+                    { loc: [ 7, 8 ], note: ".next( ) will 'resume' the execution" },
+                    { loc: [ 8, 9 ], note: "each new value is returned together with the done flag" },
+                    { loc: [ 9, 10 ] },
+                    { loc: [ 10, 11 ] },
+                    { loc: [ 11, 12 ], note: "iterator is done" },
+                    { loc: [ 14, 17 ] },
+                    { loc: [ 19, 29 ] },
+                    { loc: [ 30, 31 ] },
+                    { loc: [ 31, 32 ] },
+                    { loc: [ 32, 33 ] },
+                    { loc: [ 33, 34 ] },
+                    { loc: [ 34, 35 ] },
+                    { loc: [ 35, 36 ] },
+                    { loc: [ 36, 37 ] },
+                    { loc: [ 30, 38 ], note: "infinite sequence!" },
+                    { loc: [ 40, 46 ] },
+                    { loc: [ 47, 49 ], note: "next( ) returns whatever we put after the yield statement" },
+                    { loc: [ 43, 44 ], note: "returns 1" },
+                    { loc: [ 48, 49 ], note: "{ value: 1, done: false }" },
+                    { loc: [ 48, 53 ] },
+                    { loc: [ 51, 52 ], note: "next( ) passes the parameter to the generator" },
+                    { loc: [ 43, 44 ], note: "value is now 2, yield returns 3" },
+                    { loc: [ 51, 52 ], note: "generator returns { value: 3, done: false }" },
+                    { loc: [ 43, 44 ], note: "value is now 4, yield returns 5" },
+                    { loc: [ 40, 53 ] },
+                ] }
+            />
+            <CodeSlide
+                transition={ [ "slide" ] }
+                lang="js"
+                code={ require( "raw!../assets/code/async.example" ) }
+                ranges={ [
+                    { loc: [ 0, 0 ], title: "Async Await" },
+                    { loc: [ 0, 5 ] },
+                    { loc: [ 1, 2 ] },
+                    { loc: [ 2, 3 ] },
+                    { loc: [ 3, 4 ] },
+                    { loc: [ 6, 15 ], note: "naïve implementation" },
+                    { loc: [ 0, 5 ] },
+                    { loc: [ 18, 23 ], note: "the future is here" },
+                ] }
+            />
+            <Slide transition={ [ "slide" ] } bgColor="#f1c40f">
+                <Heading textColor="#2c3e50" margin="0px 0px 50px 0px">Many more!</Heading>
+                <div>
+                    <Feature name="placeholder" />
+                    <Feature name="Native Promise" />
+                    <Feature name="Object.assign" />
+                    <Feature name="New Modules" />
+                </div>
+                <div>
+                    <Feature name="placeholder" />
+                    <Feature name="Map/Set" />
+                    <Feature name="WeakMap/WeakSet" />
+                    <Feature name="Symbols" />
+                </div>
+                <div>
+                    <Feature name="placeholder" />
+                    <Feature name="New built-in methods" />
+                    <Feature name="Proxy & Reflection" />
+                    <Feature name="..." />
+                </div>
             </Slide>
             <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
                 <Heading textColor="#f1c40f">Great! Can I use it?</Heading>
+                <Appear><Image fit src={ images.kangaxDesktop } margin="30px auto" height="200px" /></Appear>
+                <Appear><Image fit src={ images.kangaxMobile } margin="30px auto" height="200px" /></Appear>
             </Slide>
             <Slide transition={ [ "spin" ] } bgColor="#2c3e50">
-                <Image fit src={ images.babel } margin="auto" height="400px" />
+                <Image fit src={ images.babel } margin="auto" width="70%" />
+                <Appear>
+                    <Image fit src={ images.babelRepl } margin="auto" width="100%" />
+                </Appear>
             </Slide>
-            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
-                <Heading textColor="#f1c40f">What about node?</Heading>
+            <Slide transition={ [ "zoom" ] } bgColor="#2c3e50">
+                <Heading textColor="#f1c40f" fit>ES 2016</Heading>
             </Slide>
+            <CodeSlide
+                transition={ [ "slide" ] }
+                lang="js"
+                code={ require( "raw!../assets/code/es2016.example" ) }
+                ranges={ [
+                    { loc: [ 0, 11 ], title: "Two features!" },
+                    { loc: [ 14, 22 ], note: "Array.prototype.includes" },
+                    { loc: [ 24, 29 ], note: "** operator" },
+                ] }
+            />
             <Slide transition={ [ "slide" ] } bgColor="#f1c40f">
                 <BlockQuote>
                     <Quote>Any application that can be written in JavaScript, will eventually be written in JavaScript.</Quote>

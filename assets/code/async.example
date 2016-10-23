@@ -1,0 +1,23 @@
+function* fetchPhotosForUser( userId ) {
+    const user = yield fetchUser( userId );
+    const friends = yield fetchFriends( user );
+    return yield fetchPhotosForPeople( friends );
+}
+
+const coroutine = fetchPhotosForPeople( 1 );
+
+function yieldNext( res ) {
+    const nextPromise = 
+        coroutine.next( res ).value;
+    nextPromise.then( yieldNext )
+}
+
+yieldNext( );
+
+/* ES 20XX */
+
+async fetchPhotosForUser( userId ) {
+    const user = await fetchUser( userId );
+    const friends = await fetchFriends( user );
+    return await fetchPhotosForPeople( friends );
+}

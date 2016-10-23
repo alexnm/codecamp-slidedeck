@@ -1,0 +1,29 @@
+
+
+
+var x = 3;
+var array = [ 1, 2, 3, 4, 5 ];
+
+if ( array.indexOf( x ) > -1 ) {
+    // array includes x
+} else {
+    // array does not include x
+}
+
+/* ES 2016 */
+
+const x = 3;
+const array = [ 1, 2, 3, 4, 5 ];
+
+if ( array.includes( x ) ) {
+    // array includes x
+} else {
+    // array does not include x
+}
+
+
+var squared = Math.pow( x, 2 );
+
+/* ES 2016 */
+
+const squared = x ** 2;

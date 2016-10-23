@@ -1,0 +1,57 @@
+function* generator( ) {
+    for ( let value = 1; value <= 4; value++ ) {
+        yield value;
+    }
+}
+
+const iterator = generator( );
+iterator.next( ); // { value: 1, done: false }
+iterator.next( ); // { value: 2, done: false }
+iterator.next( ); // { value: 3, done: false }
+iterator.next( ); // { value: 4, done: false }
+iterator.next( ); // { value: undef, done: true }
+
+
+for ( let value of generator( ) ) {
+    console.log( value ); // 1, 2, 3, 4
+}
+
+
+function* fibonacci( ) {
+    let a = 0;
+    let b = 1;
+    while ( true ) {
+        let c = a + b;
+        yield c;
+        a = b;
+        b = c;
+    }
+}
+
+const it = fibonacci( );
+it.next( ); // { value: 1, done: false }
+it.next( ); // { value: 2, done: false }
+it.next( ); // { value: 3, done: false }
+it.next( ); // { value: 5, done: false }
+it.next( ); // { value: 8, done: false }
+it.next( ); // { value: 13, done: false }
+...
+
+
+function* channel( ) {
+    let value = 0;
+    while( value < 100) {
+        value = yield value + 1;
+    }
+}
+
+const numbers = channel( );
+let number = numbers.next( );
+while ( !number.done ) {
+    console.log( number.value );
+    number = numbers.next( number.value + 1 );
+}
+
+
+
+
