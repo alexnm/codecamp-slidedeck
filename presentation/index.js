@@ -7,7 +7,6 @@ import {
   BlockQuote,
   Cite,
   Deck,
-  Fit,
   Heading,
   Image,
   List,
@@ -69,7 +68,7 @@ const Feature = ( { name } ) => (
 export default ( ) => (
     <Spectacle theme={ theme }>
         <Deck transition={ [ "slide" ] } transitionDuration={ 500 } controls={ false } progress="bar">
-            <Slide bgImage={ images.map } bgDarken={ 0.75 }>
+            <Slide bgImage={ images.map.replace( "/", "" ) } bgDarken={ 0.75 }>
                 <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f1c40f">
                     Start writing
                 </Heading>
