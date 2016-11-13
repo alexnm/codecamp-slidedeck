@@ -43,16 +43,3 @@ const [ first, ...rest ] = [ 1, 2, 3, 4, 5 ];
 // rest - [ 2, 3, 4, 5 ]
 
 
-/* ES 20XX */
-
-const person = {
-    name: "Alex",
-    age: 28,
-    sex: "male",
-}
-
-const email = "ninja@javascript.com";
-
-const personWithEmail = { ...person, email };
-
-

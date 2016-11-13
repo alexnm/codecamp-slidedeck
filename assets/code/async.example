@@ -4,7 +4,7 @@ function* fetchPhotosForUser( userId ) {
     return yield fetchPhotosForPeople( friends );
 }
 
-const coroutine = fetchPhotosForPeople( 1 );
+const coroutine = fetchPhotosForUser( 1 );
 
 function yieldNext( res ) {
     const nextPromise = 

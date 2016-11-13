@@ -37,7 +37,7 @@ preloader( images );
 preloader( logos );
 
 const theme = createTheme( {
-    primary: "#343F3E",
+    primary: "#2c3e50",
     secondary: "#505A5B",
     default: "8F91A2",
 } );
@@ -67,8 +67,8 @@ const Feature = ( { name } ) => (
 
 export default ( ) => (
     <Spectacle theme={ theme }>
-        <Deck transition={ [ "slide" ] } transitionDuration={ 500 } controls={ false } progress="bar">
-            <Slide bgImage={ images.map.replace( "/", "" ) } bgDarken={ 0.75 }>
+        <Deck transition={ [ "slide" ] } transitionDuration={ 500 } controls={ false } progress="pacman">
+            <Slide bgImage={ images.map } bgDarken={ 0.75 }>
                 <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f1c40f">
                     Start writing
                 </Heading>
@@ -85,12 +85,12 @@ export default ( ) => (
                     @alexnmoldovan
                 </Text>
             </Slide>
-            <Slide transition={ [ "slide" ] } bgColor="#f1c40f" >
-                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#34495e">
-                    A brief history of JavaScript
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50" >
+                <Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f1c40f">
+                    Current state of JavaScript
                 </Heading>
             </Slide>
-            <Slide transition={ [ "slide" ] } bgColor="#f1c40f">
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
                 <div>
                     <Logo name="js" />
                     <Logo name="jquery" />
@@ -145,10 +145,21 @@ export default ( ) => (
                     <Logo name="elm" />
                 </div>
             </Slide>
-            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
-                <Heading textColor="#f1c40f" fit>ES 2015</Heading>
+            <Slide transition={ [ "slide" ] } bgColor="#f1c40f">
+                <BlockQuote>
+                    <Quote>The strength of JavaScript is that you can do anything. The weakness is that you will.</Quote>
+                    <Cite>Reginald Braithwaite - JavaScript Allongé</Cite>
+                </BlockQuote>
             </Slide>
-            <Slide transition={ [ "spin" ] } bgColor="#2c3e50">
+            <Slide bgImage={ images.fog } bgDarken={ 0.75 } transition={ [ "slide" ] }>
+                <Appear>
+                    <Heading textColor="#f1c40f" fit>ES 2015</Heading>
+                </Appear>
+                <Appear>
+                    <Heading fit>previously known as ES 6</Heading>
+                </Appear>
+            </Slide>
+            <Slide transition={ [ "fade" ] } bgColor="#2c3e50">
                 <Heading>TC39 process</Heading>
                 <List>
                     <Appear><ListItem textColor="#e74c3c">Stage 0 - Strawman</ListItem></Appear>
@@ -164,10 +175,8 @@ export default ( ) => (
                     <Appear><ListItem textColor="#DCEDFF">https://github.com/tc39/ecma262</ListItem></Appear>
                 </List>
             </Slide>
-            <Slide transition={ [ "fade" ] } bgColor="#f1c40f">
-                <Text textSize="1.5em" textColor="#2c3e50" bold>
-                    New Features in Depth
-                </Text>
+            <Slide transition={ [ "fade" ] } bgColor="#2c3e50">
+                <Heading>Let's see some code</Heading>
             </Slide>
             <CodeSlide
                 transitionDuration={ 500 }
@@ -263,7 +272,6 @@ export default ( ) => (
                     { loc: [ 29, 32 ], note: "spread operator to the rescue!" },
                     { loc: [ 34, 38 ], note: "right variadic function" },
                     { loc: [ 40, 43 ], note: "combine destructuring with rest" },
-                    { loc: [ 45, 56 ], note: "future object spread operator" },
                 ] }
             />
             <CodeSlide
@@ -275,11 +283,6 @@ export default ( ) => (
                     { loc: [ 0, 12 ] },
                     { loc: [ 15, 29 ] },
                     { loc: [ 31, 45 ] },
-                    { loc: [ 46, 53 ] },
-                    { loc: [ 50, 51 ] },
-                    { loc: [ 37, 40 ], node: "skill is an instance variable" },
-                    { loc: [ 52, 53 ] },
-                    { loc: [ 41, 44 ], note: "name is inherited from Person" },
                 ] }
             />
             <CodeSlide
@@ -365,19 +368,14 @@ export default ( ) => (
                     <Image fit src={ images.babelRepl } margin="auto" width="100%" />
                 </Appear>
             </Slide>
-            <Slide transition={ [ "zoom" ] } bgColor="#2c3e50">
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
                 <Heading textColor="#f1c40f" fit>ES 2016</Heading>
             </Slide>
-            <CodeSlide
-                transition={ [ "slide" ] }
-                lang="js"
-                code={ require( "raw!../assets/code/es2016.example" ) }
-                ranges={ [
-                    { loc: [ 0, 11 ], title: "Two features!" },
-                    { loc: [ 14, 22 ], note: "Array.prototype.includes" },
-                    { loc: [ 24, 29 ], note: "** operator" },
-                ] }
-            />
+            <Slide transition={ [ "slide" ] } bgColor="#2c3e50">
+                <Appear><Heading size={ 1 } fit caps>The future is here</Heading></Appear>
+                <Appear><Heading size={ 1 } fit caps textColor="#f1c40f">Start writing</Heading></Appear>
+                <Appear><Heading size={ 1 } fit caps textColor="#f1c40f">modern JavaScript</Heading></Appear>
+            </Slide>
             <Slide transition={ [ "slide" ] } bgColor="#f1c40f">
                 <BlockQuote>
                     <Quote>Any application that can be written in JavaScript, will eventually be written in JavaScript.</Quote>
@@ -389,7 +387,7 @@ export default ( ) => (
                 <Appear><Heading size={ 1 } fit caps lineHeight={ 1 }>is written</Heading></Appear>
                 <Appear><Heading size={ 1 } fit caps lineHeight={ 1 } textColor="#f1c40f">in JavaScript!</Heading></Appear>
             </Slide>
-            <Slide bgImage={ images.canyon } bgDarken={ 0.75 } transition={ [ "slide" ] }>
+            <Slide bgImage={ images.map } bgDarken={ 0.75 } transition={ [ "slide" ] }>
                 <Heading>Thank you!</Heading>
                 <Heading textColor="#f1c40f">Questions?</Heading>
                 <Text textSize="1.5em" margin="100px 0px 0px 0px" textAlign="left" bold textColor="#DCEDFF">

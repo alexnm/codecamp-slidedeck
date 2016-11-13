@@ -42,6 +42,7 @@ export const logos = {
 export const images = {
     babel: require( "../assets/babel.png" ),
     babelRepl: require( "../assets/babel-repl.png" ),
+    fog: require( "../assets/fog.jpg" ),
     canyon: require( "../assets/canyon.png" ),
     kangaxDesktop: require( "../assets/kangax-desktop.png" ),
     kangaxMobile: require( "../assets/kangax-mobile.png" ),
